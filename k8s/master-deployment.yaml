@@ -24,6 +24,9 @@ spec:
         image: roscluster/master:v0
         args:
         - roscore
+        env:
+        - name: ROS_MASTER_URI
+          value: http://service-master:11311
         ports:
         - containerPort: 11311
           name: roscoreport

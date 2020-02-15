@@ -1,14 +1,14 @@
 ARG from=ros:melodic-ros-core
 FROM ${from}
 
-RUN apt-get update &&\
-    apt-get install -y \
-        net-tools \
-        iputils-ping \
-        dnsutils \
-        nano \
-    &&\
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    net-tools \
+    iputils-ping \
+    dnsutils \
+    nano \
+    ros-melodic-ros-tutorials \
+    ros-melodic-common-tutorials \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY check-roscore.py /usr/local/bin/check-roscore.py
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh

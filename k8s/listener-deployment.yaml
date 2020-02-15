@@ -39,9 +39,12 @@ spec:
       - name: rosclusterpublisher
         image: roscluster/node:v0
         args:
-        - rostopic
-        - echo
-        - chatter
+        - rosrun
+        - roscpp_tutorials
+        - listener  
+        #- rostopic
+        #- echo
+        #- chatter
         env:
         - name: ROS_MASTER_URI
           value: http://service-master:11311
@@ -62,6 +65,9 @@ spec:
             - /opt/ros/melodic/bin/rostopic
             - info
             - chatter
+            #- rosrun
+            #- roscpp_tutorials
+            #- listener
           initialDelaySeconds: 5
           periodSeconds: 1
 
